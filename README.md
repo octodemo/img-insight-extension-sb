@@ -86,8 +86,8 @@ The Copilot Extension processes image files to generate code snippets from visua
 
 ## Demo
 
-[![Watch the video](../assets/img-insight-screenshot.png)]()
-[![Watch the Img-Insight in Action](https://img.youtube.com/vi/-3cPBgp59v0/0.jpg)](https://www.youtube.com/watch?v=-3cPBgp59v0)
+
+[![Watch the Img-Insight in Action](https://i9.ytimg.com/vi/JEJgF48sYxM/mqdefault.jpg)](https://youtu.be/JEJgF48sYxM)
 
 ## Local Setup Instructions
 
