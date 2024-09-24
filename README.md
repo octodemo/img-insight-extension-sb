@@ -100,6 +100,7 @@ The Copilot Extension processes image files to generate code snippets from visua
 
     ```properties
     GITHUB_KEYS_URI=https://api.github.com/meta/public_keys/copilot_api
+    GITHUB_TOKEN=<your-github-token>
     ```
 
 3. **Install the Required Dependencies**
@@ -133,6 +134,7 @@ The Copilot Extension processes image files to generate code snippets from visua
 3. Update the `Environment Variables` in the Azure Web application with the following:
    ```properties
    GITHUB_KEYS_URI=https://api.github.com/meta/public_keys/copilot_api
+   GITHUB_TOKEN=<your-github-token>
    ``` 
 4. Update the `app-name` input for the workflow [Node Deploy](.github/workflows/node-deploy.yml) with the Azure Web application name
 5. Trigger the workflow by selecting the `pack-name=img-insight-extn` and clicking on `Run workflow`

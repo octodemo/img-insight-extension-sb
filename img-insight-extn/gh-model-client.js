@@ -9,6 +9,7 @@ const modelName = "gpt-4o-mini";
 
 async function chatProcessing(messages,token, res) {
     console.log("model call");
+    // get the PAT token from environment variable
     token = process.env.GITHUB_TOKEN;
     // create the model client
     //const client = new ModelClient(endpoint, new AzureKeyCredential(token));

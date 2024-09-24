@@ -1,7 +1,7 @@
 {
   "name": "img-insight-extn",
   "version": "1.0.0",
-  "description": "Sample Copilot Extension for Document search in google drives",
+  "description": "The Copilot Extension processes image files to generate code snippets from visual data, analyze and interpret architecture diagrams, and convert diagram-based logic into code",
   "main": "home.js",
   "scripts": {
     "start": "node home.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ambilykk/amb-copilot-extensions.git"
+    "url": "git+https://github.com/ambilykk/img-insight-extension.git"
   },
   "keywords": [
     "copilot",
@@ -18,9 +18,9 @@
   "author": "@ambilykk",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ambilykk/amb-copilot-extensions/issues"
+    "url": "https://github.com/ambilykk/img-insight-extension/issues"
   },
-  "homepage": "https://github.com/ambilykk/amb-copilot-extensions#readme",
+  "homepage": "https://github.com/ambilykk/img-insight-extension#readme",
   "dependencies": {
     "@azure-rest/ai-inference": "latest",
     "@azure/core-auth": "latest",
