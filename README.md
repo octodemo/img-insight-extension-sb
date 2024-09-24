@@ -87,6 +87,7 @@ The Copilot Extension processes image files to generate code snippets from visua
 ## Demo
 
 [![Watch the video](../assets/img-insight-screenshot.png)]()
+[![Watch the Img-Insight in Action](https://img.youtube.com/vi/-3cPBgp59v0/0.jpg)](https://www.youtube.com/watch?v=-3cPBgp59v0)
 
 ## Local Setup Instructions
 
@@ -138,3 +139,10 @@ The Copilot Extension processes image files to generate code snippets from visua
    ``` 
 4. Update the `app-name` input for the workflow [Node Deploy](.github/workflows/node-deploy.yml) with the Azure Web application name
 5. Trigger the workflow by selecting the `pack-name=img-insight-extn` and clicking on `Run workflow`
+
+
+## References
+1. [Copilot Extension](https://github.com/features/copilot/extensions)
+2. [Copilot Extension Public Beta](https://github.blog/news-insights/product-news/enhancing-the-github-copilot-ecosystem-with-copilot-extensions-now-in-public-beta/)
+3. [Copilot Extension Learning Resources](https://resources.github.com/learn/pathways/copilot/extensions/essentials-of-github-copilot-extensions/)
+4. [Copilot Extension Toolkit & SDKs](https://github.com/copilot-extensions)
