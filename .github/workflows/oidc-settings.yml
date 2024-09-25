@@ -1,0 +1,16 @@
+name: OIDC setting
+
+on:
+  workflow_dispatch:
+
+permissions: write-all  
+
+jobs:
+  set: 
+    runs-on: ubuntu-latest  
+    steps:                  
+        - name: oidc customization
+          uses: ambilykk/actions-custom-oidc-claim@main
+          with:
+             GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}  
+             claim-keys: repo
