@@ -13,8 +13,8 @@ on:
           description: 'app name'
           type: choice
           options:
-            - 'img-insight'
-          default: 'img-insight'
+            - 'sb-img-insight'
+          default: 'sb-img-insight'
           required: true
             
 env:
