@@ -6,8 +6,8 @@ on:
           description: 'package name'
           type: choice
           options:
-            - 'img-insight-extn'
-          default: 'img-insight-extn'
+            - 'sb-img-insight-extn'
+          default: 'sb-img-insight-extn'
           required: true
         app-name:
           description: 'app name'
