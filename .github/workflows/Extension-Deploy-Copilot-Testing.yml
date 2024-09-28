@@ -1,0 +1,84 @@
+name: Extension-Deploy-Copilot-Testing
+
+on: 
+    workflow_dispatch:
+      inputs:
+        pack-name:
+          description: 'package name'
+          type: choice
+          options:
+            - 'img-insight-extn'
+          default: 'img-insight-extn'
+          required: true
+        app-name:
+          description: 'app name'
+          type: choice
+          options:
+            - 'img-insight'
+          default: 'img-insight'
+          required: true
+
+
+permissions:
+      id-token: write
+      contents: read
+
+#name: Node.js
+
+env:
+  AZURE_WEBAPP_NAME: sb-web-app   # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
+  NODE_VERSION: '18.x'                # set this to the node version to use
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    # checkout the repo
+    - name: 'Checkout GitHub Action' 
+      uses: actions/checkout@main
+   
+    - uses: azure/login@v2
+      with:
+        client-id: ${{ secrets.AZURE_CLIENT_ID }}
+        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        
+    - name: Setup Node ${{ env.NODE_VERSION }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        cache: 'npm'
+        cache-dependency-path: './${{inputs.pack-name}}/package-lock.json'
+    
+    - name: 'npm install, build, and test'
+      run: |
+        cd ./${{inputs.pack-name}}
+        npm install
+        npm run build --if-present
+        npm run test --if-present
+      working-directory:  '.'
+
+    - name: Upload artifact for deployment job
+      uses: actions/upload-artifact@v4
+      with:
+        name: node-app
+        path: ./${{inputs.pack-name}}
+
+    - name: Download artifact from build job
+      uses: actions/download-artifact@v4
+      with:
+        name: node-app
+
+    # deploy web app using Azure credentials
+    - name: 'Deploy to Azure WebApp'
+      id: deploy-to-webapp
+      uses: azure/webapps-deploy@v3
+      with:
+        app-name: ${{ env.AZURE_WEBAPP_NAME }}
+        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+
+    # Azure logout 
+    - name: logout
+      run: |
+        az logout
